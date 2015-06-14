@@ -1,0 +1,13 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.model.dto">
+    <class name="Slider" table="tb_slider">
+        <id name="ma_slider" column="ma_slider" type="integer">
+            <generator class="native"/>
+        </id>
+        <property name="anh" column="anh_slider" type="string" />
+        <property name="mota" column="mota_slider" type="string" />
+        
+    </class> 
+</hibernate-mapping>

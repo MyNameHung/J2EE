@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Baohanh" table="tb_baohanh">
+
+      <id name="ma_baohanh" type="int" column="ma_baohanh">
+         <generator class="native"/>
+      </id>
+      <property name="ngaybaohanh" column="ngaybaohanh" type="string"/>
+      <property name="phibaohanh" column="phibaohanh" type="long"/>
+      
+      <many-to-one name="sanpham" column="ma_sp" 
+       class="Sanpham" not-null="true"/>
+   </class>
+
+</hibernate-mapping>

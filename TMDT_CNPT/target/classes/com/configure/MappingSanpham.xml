@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Sanpham" table="tb_sanpham">
+
+      <id name="ma_sp" type="int" column="ma_sp">
+         <generator class="native"/>
+      </id>
+      <property name="tensp" column="tensp" type="string"/>
+      <property name="ngayNhap" column="ngaynhap" type="string"/>   
+      <property name="giaNhap" column="gianhap" type="long"/>
+      <property name="giaXuat" column="giaxuat" type="long"/>
+      <property name="soLuongNhap" column="soluongnhap" type="int"/>
+      <property name="tinhTrang" column="tinhtrang" type="boolean"/>
+      <property name="noiBat" column="noibat" type="boolean"/>
+      <property name="KichThuoc" column="kichthuoc" type="float"/>
+      <property name="trongLuong" column="trongluong" type="float"/>
+      <property name="loai" column="loai" type="string"/>
+      <property name="moTa" column="mota_sp" type="string"/>
+      <property name="cachTinhGia" column="cachtinhgia" type="string"/>
+      <property name="anh" column="anh_sp" type="string"/>
+      <property name="thoiGianBaoHanh" column="thoigianbaohanh" type="string"/>
+            
+      <many-to-one name="hangsx" column="ma_hangsx" 
+       class="Hangsx" not-null="true"/>
+      <many-to-one name="sub" column="ma_sub" 
+       class="Sub" not-null="true"/>
+       
+      <set name="cthd" cascade="all" >
+         <key column="ma_sp"  />
+         <one-to-many class="Ct_hoadon" />
+      </set>
+      
+      <set name="phutro" cascade="all" >
+         <key column="ma_sp"  />
+         <one-to-many class="Phutro" />
+      </set>
+      
+      <set name="baohanh" cascade="all" >
+         <key column="ma_sp"  />
+         <one-to-many class="Baohanh" />
+      </set>
+      
+      <set name="phanhoi" cascade="all" >
+         <key column="ma_sp"  />
+         <one-to-many class="Phanhoi" />
+      </set>
+   </class>
+
+</hibernate-mapping>

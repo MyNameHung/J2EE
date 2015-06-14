@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Phanhoi" table="tb_phanhoi">
+
+      <id name="ma_phanhoi" type="int" column="ma_phanhoi">
+         <generator class="native"/>
+      </id>
+      <property name="noidung" column="noidung" type="string"/>
+            
+      <many-to-one name="sanpham" column="ma_sp" 
+       class="Sanpham" not-null="true"/>
+
+      <many-to-one name="khachhang" column="ma_kh" 
+       class="Khachhang" not-null="true"/>
+   </class>
+
+</hibernate-mapping>

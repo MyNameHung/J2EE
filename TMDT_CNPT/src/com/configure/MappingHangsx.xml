@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Hangsx" table="tb_hangsx">
+      <id name="ma_hangsx" type="int" column="ma_hangsx">
+         <generator class="native"/>
+      </id>
+           
+      <property name="tenhangsx" column="tenhangsx" type="string"/>
+      
+      <set name="sanpham" cascade="all" >
+         <key column="ma_sp"  />
+         <one-to-many class="Sanpham" />
+      </set>
+ 
+   </class>
+
+</hibernate-mapping>

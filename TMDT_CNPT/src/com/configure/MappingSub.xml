@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Sub" table="tb_sub">
+
+      <id name="ma_sub" type="int" column="ma_sub">
+         <generator class="native"/>
+      </id>
+      <property name="ten" column="ten_sub" type="string"/>
+      <property name="mota" column="mota_sub" type="string"/>
+      
+      <many-to-one name="category" column="ma_category" 
+       class="Category" not-null="true"/>
+   </class>
+
+</hibernate-mapping>

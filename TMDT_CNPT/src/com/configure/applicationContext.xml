@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        ">
+	<!-- Configure Hibernate -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/db_cnpt"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"> </property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+
+		<property name="mappingResources">
+			<list>
+				<value>com/configure/MappingCategory.xml</value>
+				<value>com/configure/MappingSub.xml</value>
+				<value>com/configure/MappingBaiviet.xml</value>
+				<value>com/configure/MappingBaohanh.xml</value>
+				<value>com/configure/MappingCthoadon.xml</value>
+				<value>com/configure/MappingHangsx.xml</value>
+				<value>com/configure/MappingHoadon.xml</value>
+				<value>com/configure/MappingKhachhang.xml</value>
+				<value>com/configure/MappingNganhcn.xml</value>
+				<value>com/configure/MappingNguoinhan.xml</value>		
+				<value>com/configure/MappingPhanhoi.xml</value>
+				<value>com/configure/MappingPhutro.xml</value>
+				<value>com/configure/MappingSanpham.xml</value>
+				<value>com/configure/MappingSlider.xml</value>	
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="helper" class="com.helper.Helper">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

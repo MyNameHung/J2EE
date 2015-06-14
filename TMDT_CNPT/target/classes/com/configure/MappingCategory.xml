@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Category" table="tb_category">
+      <id name="ma_category" type="int" column="ma_category">
+         <generator class="native"/>
+      </id>
+           
+      <property name="ten" column="ten_category" type="string"/>
+      <property name="mota" column="mota_category" type="string"/>
+      
+      <set name="subs" cascade="all" >
+         <key column="ma_category"  />
+         <one-to-many class="Sub" />
+      </set>
+ 
+   </class>
+
+</hibernate-mapping>

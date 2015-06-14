@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Phutro" table="tb_phutro">
+
+      <id name="ma_phutro" type="int" column="ma_phutro">
+         <generator class="native"/>
+      </id>
+      <property name="ungdung" column="ungdung" type="string"/>
+      
+      <many-to-one name="nganhcn" column="ma_nganh" 
+       class="Nganhcn" not-null="true"/>
+       
+      <many-to-one name="sanpham" column="ma_sp" 
+       class="Sanpham" not-null="true"/>
+   </class>
+
+</hibernate-mapping>

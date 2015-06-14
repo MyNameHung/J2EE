@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Khachhang" table="tb_khachhang">
+      <id name="ma_kh" type="int" column="ma_kh">
+         <generator class="native"/>
+      </id>
+           
+      <property name="taikhoan" column="taikhoan" type="string"/>
+      <property name="matkhau" column="matkhau" type="string"/>
+      <property name="ten_kh" column="ten_kh" type="string"/>
+      <property name="ngaysinh" column="ngaysinh" type="string"/>
+      <property name="gioitinh" column="gioitinh" type="int"/>
+      <property name="nghenghiep" column="nghenghiep" type="string"/>
+      <property name="email" column="email" type="string"/>
+      <property name="dienthoai" column="dienthoai" type="long"/>
+      <property name="quantri" column="quantri" type="boolean"/>
+            
+      <set name="hoadon" cascade="all" >
+         <key column="ma_kh"  />
+         <one-to-many class="Hoadon" />
+      </set>
+      
+      <set name="baiviet" cascade="all" >
+         <key column="ma_kh"  />
+         <one-to-many class="Baiviet" />
+      </set>
+      
+      <set name="phanhoi" cascade="all" >
+         <key column="ma_kh"  />
+         <one-to-many class="Phanhoi" />
+      </set>
+   </class>
+
+</hibernate-mapping>

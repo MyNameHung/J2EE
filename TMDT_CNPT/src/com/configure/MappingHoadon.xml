@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Hoadon" table="tb_hoadon">
+
+      <id name="ma_hoadon" type="int" column="ma_hoadon">
+         <generator class="native"/>
+      </id>
+      <property name="ngaydathang" column="ngaydathang" type="string"/>
+      <property name="ngaygiaohang" column="ngaygiaohang" type="string"/>
+      <property name="tinhtrang" column="tinhtrang" type="boolean"/>
+      <property name="tonggiatri" column="tonggiatri" type="long"/>
+      
+      <many-to-one name="khachhang" column="ma_kh" 
+       class="Khachhang" not-null="true"/>
+       
+      <set name="cthd" cascade="all" >
+         <key column="ma_hoadon"  />
+         <one-to-many class="Ct_hoadon" />
+      </set>
+   </class>
+
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Ct_hoadon" table="tb_cthoadon">
+
+      <id name="ma_cthd" type="int" column="ma_cthd">
+         <generator class="native"/>
+      </id>
+      <property name="soluong" column="soluong" type="int"/>
+      <property name="gia" column="gia" type="long"/>
+                  
+      <many-to-one name="sanpham" column="ma_sp" 
+       class="Sanpham" not-null="true"/>
+
+      <many-to-one name="hoadon" column="ma_hoadon" 
+       class="Hoadon" not-null="true"/>
+   </class>
+
+</hibernate-mapping>

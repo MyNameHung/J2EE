@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.model.dto">
+   <class name="Baiviet" table="tb_baiviet">
+
+      <id name="ma_baiviet" type="int" column="ma_baiviet">
+         <generator class="native"/>
+      </id>
+      <property name="tieude" column="tieude" type="string"/>
+      <property name="noidung" column="noidung" type="string"/>
+      <property name="mota_baiviet" column="mota_baiviet" type="string"/>
+      <property name="hinhanh" column="hinhanh" type="string"/>
+            
+      <many-to-one name="sub" column="ma_sub" 
+       class="Sub" not-null="true"/>
+
+      <many-to-one name="khachhang" column="ma_kh" 
+       class="Khachhang" not-null="true"/>
+   </class>
+
+</hibernate-mapping>
