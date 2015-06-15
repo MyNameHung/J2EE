@@ -12,6 +12,15 @@
       <property name="ten" column="ten_sub" type="string"/>
       <property name="mota" column="mota_sub" type="string"/>
       
+      <set name="sanpham" cascade="all" >
+         <key column="ma_sub"  />
+         <one-to-many class="Sanpham" />
+      </set>
+      <set name="baiviet" cascade="all" >
+         <key column="ma_sub"  />
+         <one-to-many class="Baiviet" />
+      </set>
+            
       <many-to-one name="category" column="ma_category" 
        class="Category" not-null="true"/>
    </class>

@@ -1,10 +1,14 @@
 package com.model.dto;
+import java.util.*;
 
 public class Sub {
 	private int ma_sub;
 	private String ten;
 	private String mota;
 	private Category category;
+	
+	private Set sanpham;
+	private Set baiviet;
 	
 	public Sub(){}
 	
@@ -44,6 +48,22 @@ public class Sub {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	public Set getSanpham() {
+		return sanpham;
+	}
+
+	public void setSanpham(Set sanpham) {
+		this.sanpham = sanpham;
+	}
+
+	public Set getBaiviet() {
+		return baiviet;
+	}
+
+	public void setBaiviet(Set baiviet) {
+		this.baiviet = baiviet;
 	}
 
 	

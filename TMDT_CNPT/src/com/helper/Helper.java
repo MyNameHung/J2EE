@@ -7,9 +7,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class Helper {
-	SessionFactory sessionFactory;
+	public SessionFactory sessionFactory;
 
-	Session ses;
+	public Session ses;
 	Transaction tran;
 	public String error;
 
@@ -70,4 +70,23 @@ public class Helper {
 		return lstTmp;
 	}
 
+	public List CallProcedure(String query,Class entity) {
+		List lstTmp = null;
+		
+		try {
+			ses = sessionFactory.openSession();
+			tran = ses.beginTransaction();
+			lstTmp = ses.createSQLQuery(query).addEntity(entity).list();
+			tran.commit();
+		} catch (Exception e) {
+			error = e.toString();
+		} finally {
+			if (ses.isOpen())
+				ses.close();
+		}
+
+		return lstTmp;
+	}
+
+	
 }

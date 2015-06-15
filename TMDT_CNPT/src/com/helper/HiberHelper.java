@@ -2,6 +2,8 @@ package com.helper;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
@@ -18,6 +20,10 @@ public class HiberHelper {
 	public static List ToList(String query) {
 		return helper.ToList(query);
 	}
+	
+	public static List CallProcedure(String query,Class entity) {
+		return helper.CallProcedure(query,entity);
+	}
 
 	public static boolean Save(Object obj) {
 		return helper.Save(obj);
@@ -30,4 +36,6 @@ public class HiberHelper {
 	public static String Error() {
 		return helper.error;
 	}
+	
+	
 }
