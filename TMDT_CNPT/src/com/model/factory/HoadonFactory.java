@@ -3,6 +3,7 @@ package com.model.factory;
 import java.util.List;
 
 import com.helper.HiberHelper;
+import com.library.ProcessArray;
 import com.model.dto.*;
 
 public class HoadonFactory {
@@ -21,5 +22,16 @@ public class HoadonFactory {
 	public static Hoadon Get(int id)
 	{
 		return (Hoadon)HiberHelper.ToList("from Hoadon where ma_hoadon="+id).get(0);
+	}
+	
+	/**
+	Array nay gom cac doi so : 
+	id_bill int
+	*/
+	public static List getBillById(String[] array)
+	{
+		
+		String query = "call bill_get_by_id("+ProcessArray.ArrayToString(array)+")";
+		return HiberHelper.CallProcedure(query,Hoadon.class);
 	}
 }

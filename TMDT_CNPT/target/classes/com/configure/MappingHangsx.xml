@@ -12,7 +12,7 @@
       <property name="tenhangsx" column="tenhangsx" type="string"/>
       
       <set name="sanpham" cascade="all" >
-         <key column="ma_sp"  />
+         <key column="ma_hangsx"  />
          <one-to-many class="Sanpham" />
       </set>
  
